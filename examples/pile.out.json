@@ -1,0 +1,304 @@
+{
+ "documents": [
+  {
+   "n": 1,
+   "doc_type": "invoice",
+   "party": "Northside Electric Co.",
+   "party_role": "subcontractor",
+   "doc_date": "2026-10-09",
+   "reference": "4471",
+   "amount_printed": "$801.70",
+   "key_fields": [
+    {
+     "name": "vendor",
+     "value": "Northside Electric Co."
+    },
+    {
+     "name": "invoice_number",
+     "value": "4471"
+    },
+    {
+     "name": "invoice_date",
+     "value": "2026-10-09"
+    },
+    {
+     "name": "terms",
+     "value": "Net 30"
+    },
+    {
+     "name": "job",
+     "value": "1830 Girard Ave S, Unit 3 — replace kitchen GFCI, add bath fan circuit"
+    },
+    {
+     "name": "total_due",
+     "value": "$801.70"
+    },
+    {
+     "name": "po_number",
+     "value": ""
+    }
+   ],
+   "expires_on": "",
+   "filing_name": "2026-10-09 Northside Electric Co Invoice 4471",
+   "folder": "Northside Electric Co/Invoice",
+   "problems": [
+    "No PO number on invoice"
+   ],
+   "source": "Document 1"
+  },
+  {
+   "n": 2,
+   "doc_type": "W-9",
+   "party": "Ridgeline Roofing LLC",
+   "party_role": "subcontractor",
+   "doc_date": "",
+   "reference": "",
+   "amount_printed": "",
+   "key_fields": [
+    {
+     "name": "name",
+     "value": "Ridgeline Roofing LLC"
+    },
+    {
+     "name": "tax_classification",
+     "value": "LLC - S corporation"
+    },
+    {
+     "name": "address",
+     "value": "4405 Hwy 10, Anoka MN 55303"
+    },
+    {
+     "name": "tin_type",
+     "value": "EIN"
+    },
+    {
+     "name": "tin_last4",
+     "value": "7651"
+    }
+   ],
+   "expires_on": "",
+   "filing_name": "Ridgeline Roofing LLC W-9",
+   "folder": "Ridgeline Roofing LLC/W-9",
+   "problems": [
+    "Unsigned (Part II signature blank)",
+    "Signature date blank"
+   ],
+   "source": "Document 2"
+  },
+  {
+   "n": 3,
+   "doc_type": "certificate of insurance",
+   "party": "Ridgeline Roofing LLC",
+   "party_role": "subcontractor",
+   "doc_date": "2025-10-30",
+   "reference": "GL-88310492",
+   "amount_printed": "$1,000,000",
+   "key_fields": [
+    {
+     "name": "insured",
+     "value": "Ridgeline Roofing LLC"
+    },
+    {
+     "name": "insurer",
+     "value": "Granite State Mutual"
+    },
+    {
+     "name": "producer",
+     "value": "Twin Lakes Insurance Agency"
+    },
+    {
+     "name": "policy_number",
+     "value": "GL-88310492"
+    },
+    {
+     "name": "effective",
+     "value": "2025-10-29"
+    },
+    {
+     "name": "expiration",
+     "value": "2026-10-29"
+    },
+    {
+     "name": "each_occurrence",
+     "value": "$1,000,000"
+    },
+    {
+     "name": "general_aggregate",
+     "value": "$2,000,000"
+    }
+   ],
+   "expires_on": "2026-10-29",
+   "filing_name": "2025-10-30 Ridgeline Roofing LLC COI GL-88310492",
+   "folder": "Ridgeline Roofing LLC/Certificate of Insurance",
+   "problems": [
+    "Expires in 12 days (2026-10-29)"
+   ],
+   "source": "Document 3"
+  },
+  {
+   "n": 4,
+   "doc_type": "notice",
+   "party": "Dana Pruitt",
+   "party_role": "tenant",
+   "doc_date": "",
+   "reference": "",
+   "amount_printed": "",
+   "key_fields": [
+    {
+     "name": "tenant",
+     "value": "Dana Pruitt"
+    },
+    {
+     "name": "email",
+     "value": "dana.p@mailbox.example"
+    },
+    {
+     "name": "unit",
+     "value": "2600 Pleasant Ave Unit 214"
+    },
+    {
+     "name": "notice_type",
+     "value": "60-day move-out notice"
+    },
+    {
+     "name": "move_out_date",
+     "value": "2026-12-15"
+    },
+    {
+     "name": "forwarding_address",
+     "value": ""
+    }
+   ],
+   "expires_on": "",
+   "filing_name": "Dana Pruitt Notice Unit 214",
+   "folder": "Dana Pruitt/Notice",
+   "problems": [
+    "No date on the notice",
+    "Forwarding address not provided"
+   ],
+   "source": "Document 4"
+  },
+  {
+   "n": 5,
+   "doc_type": "packing slip",
+   "party": "",
+   "party_role": "vendor",
+   "doc_date": "2026-10-14",
+   "reference": "77-30915",
+   "amount_printed": "",
+   "key_fields": [
+    {
+     "name": "order_number",
+     "value": "77-30915"
+    },
+    {
+     "name": "ship_date",
+     "value": "2026-10-14"
+    },
+    {
+     "name": "ship_to",
+     "value": "Lakeview Property Group, 1830 Girard Ave S"
+    },
+    {
+     "name": "items",
+     "value": "12 LED flush mount 14in; 4 Bath fan 80 CFM; 2 GFCI 20A"
+    },
+    {
+     "name": "po_number",
+     "value": ""
+    }
+   ],
+   "expires_on": "",
+   "filing_name": "2026-10-14 Unknown Vendor PackingSlip 77-30915",
+   "folder": "Unknown Vendor/Packing Slip",
+   "problems": [
+    "Vendor name not shown",
+    "PO number blank"
+   ],
+   "source": "Document 5"
+  },
+  {
+   "n": 6,
+   "doc_type": "W-9",
+   "party": "Northside Electric Co.",
+   "party_role": "subcontractor",
+   "doc_date": "2026-03-02",
+   "reference": "",
+   "amount_printed": "",
+   "key_fields": [
+    {
+     "name": "name",
+     "value": "Northside Electric Co."
+    },
+    {
+     "name": "tax_classification",
+     "value": "C Corporation"
+    },
+    {
+     "name": "tin_type",
+     "value": "EIN"
+    },
+    {
+     "name": "tin_last4",
+     "value": "3384"
+    },
+    {
+     "name": "signed_by",
+     "value": "M. Okafor"
+    },
+    {
+     "name": "signature_date",
+     "value": "2026-03-02"
+    },
+    {
+     "name": "address",
+     "value": ""
+    }
+   ],
+   "expires_on": "",
+   "filing_name": "2026-03-02 Northside Electric Co W-9",
+   "folder": "Northside Electric Co/W-9",
+   "problems": [
+    "Address blank"
+   ],
+   "source": "Document 6"
+  }
+ ],
+ "parties": [
+  {
+   "name": "Northside Electric Co.",
+   "role": "subcontractor",
+   "missing": [
+    "Certificate of insurance (general liability at least $1,000,000)",
+    "Our PO number on invoice 4471"
+   ],
+   "follow_up": "Hi, following up on your paperwork. Please send a certificate of insurance showing general liability of at least $1,000,000, naming Lakeview Property Group as certificate holder, and reissue invoice 4471 with our PO number. Please also send your address for the W-9 on file.\nThanks,"
+  },
+  {
+   "name": "Ridgeline Roofing LLC",
+   "role": "subcontractor",
+   "missing": [
+    "Signed W-9"
+   ],
+   "follow_up": "Hi, following up on your paperwork. The W-9 we received is not signed or dated; please sign, date and return it.\nThanks,"
+  },
+  {
+   "name": "Dana Pruitt",
+   "role": "tenant",
+   "missing": [],
+   "follow_up": "Hi Dana, we received your move-out notice for Unit 214 with a last day of December 15, 2026. Please send your forwarding address and confirm the date you sent the notice.\nThanks,"
+  },
+  {
+   "name": "Unknown vendor (packing slip order 77-30915)",
+   "role": "vendor",
+   "missing": [
+    "Vendor name",
+    "Our PO number"
+   ],
+   "follow_up": "Hi, we received the shipment for order 77-30915 shipped 10/14/2026 with no PO number. Please confirm your company name and send the invoice referencing our PO number.\nThanks,"
+  }
+ ],
+ "unlocked": true,
+ "shown": 6,
+ "total": 6
+}

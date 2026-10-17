@@ -1,0 +1,40 @@
+CHECKLIST: Every subcontractor needs a signed W-9 and a certificate of insurance (general liability at least $1,000,000). Every vendor invoice needs our PO number.
+---
+INVOICE #4471
+Northside Electric Co.  2210 Lyndale Ave N, Minneapolis MN 55411
+Bill to: Lakeview Property Group
+Date: 10/09/2026   Terms: Net 30
+Job: 1830 Girard Ave S, Unit 3 — replace kitchen GFCI, add bath fan circuit
+Labor 6.5 hrs ............ $617.50
+Materials ................ $184.20
+TOTAL DUE ................ $801.70
+---
+Form W-9 (Rev. March 2024)
+1 Name: Ridgeline Roofing LLC
+3 Federal tax classification: Limited liability company — tax classification: S
+5 Address: 4405 Hwy 10, Anoka MN 55303
+Part I Taxpayer Identification Number — Employer identification number: 41-2287651
+Part II Certification — Signature of U.S. person: ________   Date: ________
+---
+CERTIFICATE OF LIABILITY INSURANCE   DATE 10/30/2025
+PRODUCER: Twin Lakes Insurance Agency
+INSURED: Ridgeline Roofing LLC, 4405 Hwy 10, Anoka MN 55303
+INSURER A: Granite State Mutual
+COMMERCIAL GENERAL LIABILITY  Policy GL-88310492  Eff 10/29/2025  Exp 10/29/2026
+EACH OCCURRENCE $1,000,000   GENERAL AGGREGATE $2,000,000
+CERTIFICATE HOLDER: Lakeview Property Group, Minneapolis MN
+---
+From: Dana Pruitt <dana.p@mailbox.example>
+Subject: Unit 214 notice
+Hi, this is my 60-day notice that I'm moving out of 2600 Pleasant Ave Unit 214. Last day will be December 15, 2026. Forwarding address to follow. Thanks, Dana
+---
+PACKING SLIP  Order 77-30915   Ship date 10/14/2026
+Ship to: Lakeview Property Group, 1830 Girard Ave S
+Qty 12  LED flush mount 14in   Qty 4  Bath fan 80 CFM   Qty 2  GFCI 20A
+PO: (blank)
+---
+Form W-9 (Rev. March 2024)
+1 Name: Northside Electric Co.
+3 Federal tax classification: C Corporation
+Part I — Employer identification number: 41-1093384
+Part II — Signature: [signed] M. Okafor   Date: 03/02/2026

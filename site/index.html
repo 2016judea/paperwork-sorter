@@ -1,0 +1,199 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paperwork Sorter</title>
+<meta name="description" content="Drop in the pile: invoices, W-9s, insurance certificates, notices. Each one named, filed, entered, and the missing paperwork chased.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%232f5d50'/></svg>">
+<!-- bm-posthog:begin v2 — shared across every Vercel prototype; source ~/.claude/skills/site-analytics/posthog_snippet.html. ?me=1 opts this browser out on this site (?me=0 undoes); ?me=1&next=host1,host2 walks the opt-out across sites; headless (navigator.webdriver) never loads it. -->
+<script>
+(function(w,d){var S="paperwork-sorter",K="bm_me",me=false,u,p,n;
+try{u=new URLSearchParams(location.search);p=u.get("me");n=u.get("next");}catch(e){}
+try{if(p==="1"){localStorage.setItem(K,"1");}else if(p==="0"){localStorage.removeItem(K);}}catch(e){}
+if(p==="1"){d.cookie=K+"=1; path=/; max-age=63072000; SameSite=Lax";}else if(p==="0"){d.cookie=K+"=; path=/; max-age=0; SameSite=Lax";}
+try{me=localStorage.getItem(K)==="1";}catch(e){}
+if(!me&&/(?:^|; )bm_me=1/.test(d.cookie))me=true;
+if(p==="1"&&n){var h=n.split(","),f=h.shift();if(/^[a-z0-9.-]+$/.test(f)&&(f.slice(-11)===".vercel.app"||f==="brickandmortar.dev"||f==="readglean.com")){location.replace("https://"+f+"/?me=1"+(h.length?"&next="+h.join(","):""));}}
+if(navigator.webdriver===true)return;
+!function(t,e){var o,n,p,r;e.__SV||(w.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once unregister identify setPersonProperties reset get_distinct_id get_session_id alias set_config startSessionRecording stopSessionRecording opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing captureException getFeatureFlag isFeatureEnabled onFeatureFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(d,w.posthog||[]);
+posthog.init("phc_yFgRGppL6H7DvhgZTQKbHdrY5oqnpLT482rrNYtLqnAx",{api_host:"https://us.i.posthog.com",person_profiles:"identified_only",persistence:"localStorage+cookie",opt_out_capturing_by_default:me});
+if(me){posthog.opt_out_capturing();}else{if(p==="0")posthog.opt_in_capturing();posthog.register({site:S});}
+})(window,document);
+</script>
+<!-- bm-posthog:end -->
+
+<style>
+:root{--bg:#f7f5f0;--ink:#16140f;--muted:#6b665c;--rule:#ddd7cb;--card:#fff;--accent:#2f5d50;--onaccent:#fff;--mono:ui-monospace,SFMono-Regular,Menlo,monospace;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;--serif:Georgia,"Times New Roman",serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#14130f;--ink:#efece4;--muted:#a39d90;--rule:#36332c;--card:#1d1c17}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 var(--sans)}
+.wrap{max-width:1120px;margin:0 auto;padding:28px 16px 64px}
+.eyebrow{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+h1{font:400 clamp(28px,5.4vw,52px)/1.08 var(--serif);margin:10px 0 8px;letter-spacing:-.01em;max-width:22ch}
+h1 q{quotes:"\201C" "\201D"}
+.src{font-size:14px;color:var(--muted);margin:0 0 18px}
+.turn{font-size:clamp(18px,2.4vw,22px);margin:0 0 22px;max-width:46ch}
+.turn b{color:var(--accent)}
+.grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:900px){.grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}}
+.pane{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:14px;min-width:0}
+.pane h2{font:600 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;display:flex;justify-content:space-between;gap:8px;align-items:center}
+textarea{width:100%;min-height:300px;font:14px/1.45 var(--mono);color:var(--ink);background:transparent;border:1px solid var(--rule);border-radius:8px;padding:10px;resize:vertical}
+@media (max-width:899px){textarea{min-height:200px}.grid>.pane:nth-child(2){order:-1}#out{max-height:62vh;overflow:auto}.turn{font-size:17px;margin-bottom:14px}.src{margin-bottom:10px}}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+button,.btn{font:600 16px var(--sans);border:0;border-radius:9px;padding:12px 18px;cursor:pointer;background:var(--accent);color:var(--onaccent);min-height:44px;text-decoration:none;display:inline-flex;align-items:center}
+button.ghost{background:transparent;color:var(--ink);border:1px solid var(--rule)}
+button:disabled{opacity:.55;cursor:wait}
+.hint{font-size:13px;color:var(--muted)}
+#out{min-height:120px}
+.err{color:#b3261e;font-size:14px}
+.lock{border:1px dashed var(--accent);border-radius:10px;padding:12px 14px;margin-top:12px;font-size:15px}
+.pay{margin-top:40px;border-top:1px solid var(--rule);padding-top:26px;max-width:640px}
+.pay h3{font:400 26px/1.2 var(--serif);margin:0 0 6px}
+.pay ul{margin:8px 0 14px;padding-left:20px}
+.pw{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.pw input{font:16px var(--mono);padding:10px;border:1px solid var(--rule);border-radius:8px;background:var(--card);color:var(--ink);min-height:44px;flex:1;min-width:0}
+#checkout{margin-top:14px}
+.custom{margin-top:34px;font-size:15px;color:var(--muted);max-width:640px}
+.custom a{color:var(--ink)}
+.foot{margin-top:40px;border-top:1px solid var(--rule);padding-top:12px;font-size:13px;color:var(--muted);max-width:72ch}
+.foot a{color:var(--muted)}
+.unl{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;background:var(--accent);color:var(--onaccent);border-radius:4px;padding:3px 7px}
+.docs{margin:0;padding-left:20px}.docs>li{margin:0 0 14px}.fn{font:600 15px var(--mono);word-break:break-word}.meta{font-size:14px;margin:2px 0}.chip{font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.05em;border:1px solid var(--rule);border-radius:4px;padding:1px 6px}.probs{margin:4px 0;padding-left:18px;color:#a3361f;font-size:14px}.ok{font-size:14px;color:var(--accent)}details{font-size:14px}summary{cursor:pointer;color:var(--muted);min-height:32px;display:flex;align-items:center}.kf th{text-align:left;font-weight:500;color:var(--muted);padding:2px 10px 2px 0;vertical-align:top}.kf td{word-break:break-word}.sub{font:600 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:18px 0 8px}.party{border-top:1px solid var(--rule);padding:10px 0}.draft{white-space:pre-wrap;font:13px/1.45 var(--mono);background:var(--bg);border-radius:8px;padding:10px;margin:6px 0}
+</style>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script>
+</head><body><main class="wrap">
+<div class="eyebrow">42 Twin Cities employers posted this step in the last 30 days</div>
+<h1><q>Follow up aggressively on missing or expired documentation</q></h1>
+<p class="src">From a Twin Cities job posting, October 2026.</p>
+<p class="turn">That line describes a step, not a person. <b>Here is the step, done</b> on a pile of paperwork like yours: each document named, filed, its fields pulled out for the system, and what is missing chased.</p>
+<div class="grid">
+ <section class="pane"><h2><span>The pile (example, edit or paste yours)</span><span id="inState" class="hint">example</span></h2>
+  <textarea id="inp" spellcheck="false" aria-label="The pile (example, edit or paste yours)">CHECKLIST: Every subcontractor needs a signed W-9 and a certificate of insurance (general liability at least $1,000,000). Every vendor invoice needs our PO number.
+---
+INVOICE #4471
+Northside Electric Co.  2210 Lyndale Ave N, Minneapolis MN 55411
+Bill to: Lakeview Property Group
+Date: 10/09/2026   Terms: Net 30
+Job: 1830 Girard Ave S, Unit 3 — replace kitchen GFCI, add bath fan circuit
+Labor 6.5 hrs ............ $617.50
+Materials ................ $184.20
+TOTAL DUE ................ $801.70
+---
+Form W-9 (Rev. March 2024)
+1 Name: Ridgeline Roofing LLC
+3 Federal tax classification: Limited liability company — tax classification: S
+5 Address: 4405 Hwy 10, Anoka MN 55303
+Part I Taxpayer Identification Number — Employer identification number: 41-2287651
+Part II Certification — Signature of U.S. person: ________   Date: ________
+---
+CERTIFICATE OF LIABILITY INSURANCE   DATE 10/30/2025
+PRODUCER: Twin Lakes Insurance Agency
+INSURED: Ridgeline Roofing LLC, 4405 Hwy 10, Anoka MN 55303
+INSURER A: Granite State Mutual
+COMMERCIAL GENERAL LIABILITY  Policy GL-88310492  Eff 10/29/2025  Exp 10/29/2026
+EACH OCCURRENCE $1,000,000   GENERAL AGGREGATE $2,000,000
+CERTIFICATE HOLDER: Lakeview Property Group, Minneapolis MN
+---
+From: Dana Pruitt &lt;dana.p@mailbox.example&gt;
+Subject: Unit 214 notice
+Hi, this is my 60-day notice that I&#x27;m moving out of 2600 Pleasant Ave Unit 214. Last day will be December 15, 2026. Forwarding address to follow. Thanks, Dana
+---
+PACKING SLIP  Order 77-30915   Ship date 10/14/2026
+Ship to: Lakeview Property Group, 1830 Girard Ave S
+Qty 12  LED flush mount 14in   Qty 4  Bath fan 80 CFM   Qty 2  GFCI 20A
+PO: (blank)
+---
+Form W-9 (Rev. March 2024)
+1 Name: Northside Electric Co.
+3 Federal tax classification: C Corporation
+Part I — Employer identification number: 41-1093384
+Part II — Signature: [signed] M. Okafor   Date: 03/02/2026
+</textarea>
+  <div class="row"><label class="btn ghost" style="background:transparent;color:var(--ink);border:1px solid var(--rule)">Add files<input id="files" type="file" multiple accept="application/pdf,image/png,image/jpeg,image/webp,.txt,.csv" hidden></label><span class="hint" id="fileList">PDFs or photos, up to 3 MB together</span></div><div class="row"><button id="run">Sort it</button><button class="ghost" id="clear">Paste your own</button></div>
+  <p class="hint" id="freeLine">Free: the first 3 documents of whatever you paste. $5 once: all of them, up to 25 a run, with who to chase, the follow-up notes and the spreadsheet.</p>
+ </section>
+ <section class="pane"><h2><span>Sorted</span><span id="outState" class="hint">done on the example</span></h2>
+  <div id="out"></div>
+ </section>
+</div>
+<section class="pay" id="pay">
+ <h3 id="payH">All of them, for $5</h3>
+ <p id="payP">Every document you paste or upload, up to 25 a run, as often as you like. Plus who is missing what, a follow-up note to each, and the spreadsheet to paste into your system.</p>
+ <div class="row"><button id="buy">Unlock for $5</button><span class="hint">Once. Card or Link, through Stripe.</span></div>
+ <div id="checkout"></div>
+ <div class="pw"><input id="pwIn" placeholder="Have a password? XXXX-XXXX-XXXX" autocomplete="off" aria-label="Password"><button class="ghost" id="pwGo">Unlock</button></div>
+ <p class="hint" id="pwMsg"></p>
+</section>
+<p class="custom" id="custom">Want this built around your team&rsquo;s actual workflow? <a id="customLink" href="mailto:aidan@brickandmortar.dev?subject=Paperwork Sorter%20for%20our%20team">Email aidan@brickandmortar.dev</a>.</p>
+<footer class="foot">The pile on the left is made up. Separate pasted documents with a line of three dashes. Put a line starting <code>CHECKLIST:</code> at the top to say what every party owes you.<br>Built by <a href="https://brickandmortar.dev">Brick &amp; Mortar</a>, Minneapolis. The example is synthetic. What you paste is sent to the model to do the work and is not stored.</footer>
+</main>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+const BOOT={"product": "paperwork-sorter", "token": "", "free_items": 3, "item_word": "documents", "example_output": {"documents": [{"n": 1, "doc_type": "invoice", "party": "Northside Electric Co.", "party_role": "subcontractor", "doc_date": "2026-10-09", "reference": "4471", "amount_printed": "$801.70", "key_fields": [{"name": "vendor", "value": "Northside Electric Co."}, {"name": "invoice_number", "value": "4471"}, {"name": "invoice_date", "value": "2026-10-09"}, {"name": "terms", "value": "Net 30"}, {"name": "job", "value": "1830 Girard Ave S, Unit 3 \u2014 replace kitchen GFCI, add bath fan circuit"}, {"name": "total_due", "value": "$801.70"}, {"name": "po_number", "value": ""}], "expires_on": "", "filing_name": "2026-10-09 Northside Electric Co Invoice 4471", "folder": "Northside Electric Co/Invoice", "problems": ["No PO number on invoice"], "source": "Document 1"}, {"n": 2, "doc_type": "W-9", "party": "Ridgeline Roofing LLC", "party_role": "subcontractor", "doc_date": "", "reference": "", "amount_printed": "", "key_fields": [{"name": "name", "value": "Ridgeline Roofing LLC"}, {"name": "tax_classification", "value": "LLC - S corporation"}, {"name": "address", "value": "4405 Hwy 10, Anoka MN 55303"}, {"name": "tin_type", "value": "EIN"}, {"name": "tin_last4", "value": "7651"}], "expires_on": "", "filing_name": "Ridgeline Roofing LLC W-9", "folder": "Ridgeline Roofing LLC/W-9", "problems": ["Unsigned (Part II signature blank)", "Signature date blank"], "source": "Document 2"}, {"n": 3, "doc_type": "certificate of insurance", "party": "Ridgeline Roofing LLC", "party_role": "subcontractor", "doc_date": "2025-10-30", "reference": "GL-88310492", "amount_printed": "$1,000,000", "key_fields": [{"name": "insured", "value": "Ridgeline Roofing LLC"}, {"name": "insurer", "value": "Granite State Mutual"}, {"name": "producer", "value": "Twin Lakes Insurance Agency"}, {"name": "policy_number", "value": "GL-88310492"}, {"name": "effective", "value": "2025-10-29"}, {"name": "expiration", "value": "2026-10-29"}, {"name": "each_occurrence", "value": "$1,000,000"}, {"name": "general_aggregate", "value": "$2,000,000"}], "expires_on": "2026-10-29", "filing_name": "2025-10-30 Ridgeline Roofing LLC COI GL-88310492", "folder": "Ridgeline Roofing LLC/Certificate of Insurance", "problems": ["Expires in 12 days (2026-10-29)"], "source": "Document 3"}, {"n": 4, "doc_type": "notice", "party": "Dana Pruitt", "party_role": "tenant", "doc_date": "", "reference": "", "amount_printed": "", "key_fields": [{"name": "tenant", "value": "Dana Pruitt"}, {"name": "email", "value": "dana.p@mailbox.example"}, {"name": "unit", "value": "2600 Pleasant Ave Unit 214"}, {"name": "notice_type", "value": "60-day move-out notice"}, {"name": "move_out_date", "value": "2026-12-15"}, {"name": "forwarding_address", "value": ""}], "expires_on": "", "filing_name": "Dana Pruitt Notice Unit 214", "folder": "Dana Pruitt/Notice", "problems": ["No date on the notice", "Forwarding address not provided"], "source": "Document 4"}, {"n": 5, "doc_type": "packing slip", "party": "", "party_role": "vendor", "doc_date": "2026-10-14", "reference": "77-30915", "amount_printed": "", "key_fields": [{"name": "order_number", "value": "77-30915"}, {"name": "ship_date", "value": "2026-10-14"}, {"name": "ship_to", "value": "Lakeview Property Group, 1830 Girard Ave S"}, {"name": "items", "value": "12 LED flush mount 14in; 4 Bath fan 80 CFM; 2 GFCI 20A"}, {"name": "po_number", "value": ""}], "expires_on": "", "filing_name": "2026-10-14 Unknown Vendor PackingSlip 77-30915", "folder": "Unknown Vendor/Packing Slip", "problems": ["Vendor name not shown", "PO number blank"], "source": "Document 5"}, {"n": 6, "doc_type": "W-9", "party": "Northside Electric Co.", "party_role": "subcontractor", "doc_date": "2026-03-02", "reference": "", "amount_printed": "", "key_fields": [{"name": "name", "value": "Northside Electric Co."}, {"name": "tax_classification", "value": "C Corporation"}, {"name": "tin_type", "value": "EIN"}, {"name": "tin_last4", "value": "3384"}, {"name": "signed_by", "value": "M. Okafor"}, {"name": "signature_date", "value": "2026-03-02"}, {"name": "address", "value": ""}], "expires_on": "", "filing_name": "2026-03-02 Northside Electric Co W-9", "folder": "Northside Electric Co/W-9", "problems": ["Address blank"], "source": "Document 6"}], "parties": [{"name": "Northside Electric Co.", "role": "subcontractor", "missing": ["Certificate of insurance (general liability at least $1,000,000)", "Our PO number on invoice 4471"], "follow_up": "Hi, following up on your paperwork. Please send a certificate of insurance showing general liability of at least $1,000,000, naming Lakeview Property Group as certificate holder, and reissue invoice 4471 with our PO number. Please also send your address for the W-9 on file.\nThanks,"}, {"name": "Ridgeline Roofing LLC", "role": "subcontractor", "missing": ["Signed W-9"], "follow_up": "Hi, following up on your paperwork. The W-9 we received is not signed or dated; please sign, date and return it.\nThanks,"}, {"name": "Dana Pruitt", "role": "tenant", "missing": [], "follow_up": "Hi Dana, we received your move-out notice for Unit 214 with a last day of December 15, 2026. Please send your forwarding address and confirm the date you sent the notice.\nThanks,"}, {"name": "Unknown vendor (packing slip order 77-30915)", "role": "vendor", "missing": ["Vendor name", "Our PO number"], "follow_up": "Hi, we received the shipment for order 77-30915 shipped 10/14/2026 with no PO number. Please confirm your company name and send the invoice referencing our PO number.\nThanks,"}], "example": true}, "price": 5};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const track=(name,data={})=>{data={...data,token:BOOT.token};try{window.va("event",{name,data})}catch(e){}try{if(window.posthog&&posthog.capture)posthog.capture(name,data)}catch(e){}};
+let PW=null;try{PW=localStorage.getItem("pw:"+BOOT.product)}catch(e){}
+let LAST=null;let FILES=[];
+const fi=document.getElementById("files");if(fi)fi.onchange=async()=>{FILES=[];let tot=0;for(const f of fi.files){if(tot+f.size>3.2e6)break;tot+=f.size;const b64=await new Promise(r=>{const R=new FileReader();R.onload=()=>r(String(R.result).split(",")[1]);R.readAsDataURL(f)});FILES.push({name:f.name,type:f.type,data:b64})}$("fileList").textContent=FILES.map(f=>f.name).join(", ")||"none";$("inState").textContent="yours";track("files_added",{n:FILES.length})};
+function renderOutput(out, el, unlocked) {
+  const docs = out.documents || [];
+  const h = [];
+  h.push(`<ol class="docs">`);
+  for (const d of docs) {
+    const kf = (d.key_fields || []).filter(k => k.value).map(k => `<tr><th>${esc(k.name.replace(/_/g, " "))}</th><td>${esc(k.value)}</td></tr>`).join("");
+    h.push(`<li><div class="fn">${esc(d.filing_name)}</div>
+      <div class="meta"><span class="chip">${esc(d.doc_type)}</span> ${esc(d.party || "party not shown")} <span class="hint">→ ${esc(d.folder)}</span></div>
+      ${(d.problems || []).length ? `<ul class="probs">${d.problems.map(p => `<li>${esc(p)}</li>`).join("")}</ul>` : `<div class="ok">Nothing missing on this one</div>`}
+      <details><summary>What goes into the system (${(d.key_fields || []).filter(k => k.value).length} fields)</summary><table class="kf">${kf}</table></details></li>`);
+  }
+  h.push(`</ol>`);
+  if (out.parties) {
+    const chase = out.parties.filter(p => p.missing.length);
+    h.push(`<h4 class="sub">Who to chase (${chase.length})</h4>`);
+    for (const p of chase) {
+      h.push(`<div class="party"><b>${esc(p.name)}</b> <span class="hint">${esc(p.role)}</span>
+        <ul class="probs">${p.missing.map(m => `<li>${esc(m)}</li>`).join("")}</ul>
+        <pre class="draft">${esc(p.follow_up)}</pre><button class="ghost copy" data-t="${esc(p.follow_up)}">Copy note</button></div>`);
+    }
+    h.push(`<div class="row"><button class="ghost" id="csv">Download the spreadsheet</button></div>`);
+  } else if (out.parties_locked !== undefined) {
+    h.push(`<div class="lock">${out.parties_locked ? `${out.parties_locked} ${out.parties_locked === 1 ? "party is" : "parties are"} missing paperwork.` : ""} With $5: who is missing what, the follow-up note to each, and the spreadsheet. <a href="#pay" onclick="track('paywall_click',{why:'chase'})">Unlock</a></div>`);
+  }
+  el.innerHTML = h.join("");
+  el.querySelectorAll(".copy").forEach(b => b.onclick = () => { navigator.clipboard.writeText(b.dataset.t); b.textContent = "Copied"; track("copy_note"); });
+  const c = el.querySelector("#csv");
+  if (c) c.onclick = () => {
+    const names = [...new Set(docs.flatMap(d => (d.key_fields || []).map(k => k.name)))];
+    const q = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
+    const rows = [["filing_name", "doc_type", "party", "doc_date", "reference", "amount_printed", "expires_on", "folder", "problems", ...names].map(q).join(",")];
+    for (const d of docs) { const kv = Object.fromEntries((d.key_fields || []).map(k => [k.name, k.value]));
+      rows.push([d.filing_name, d.doc_type, d.party, d.doc_date, d.reference, d.amount_printed, d.expires_on, d.folder, (d.problems || []).join("; "), ...names.map(n => kv[n])].map(q).join(",")); }
+    const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([rows.join("\n")], { type: "text/csv" })); a.download = "paperwork.csv"; a.click(); track("download");
+  };
+}
+
+function show(out){LAST=out;const el=$("out");el.innerHTML="";renderOutput(out,el,!!out.unlocked);
+ if(!out.unlocked&&out.total>out.shown){const d=document.createElement("div");d.className="lock";d.innerHTML=`It did the first ${out.shown} of your ${out.total} ${esc(BOOT.item_word)}. <a href="#pay" id="lockA">Unlock all ${out.total} for $5</a>.`;el.appendChild(d);$("lockA").onclick=()=>track("paywall_click",{why:"more_items"})}}
+show({...BOOT.example_output,unlocked:false,shown:0,total:0});
+$("clear").onclick=()=>{$("inp").value="";$("inp").focus();$("inState").textContent="yours";track("paste_own")};
+$("inp").addEventListener("input",()=>{$("inState").textContent="yours"},{once:true});
+$("run").onclick=async()=>{const b=$("run");b.disabled=true;b.textContent="Working…";$("outState").textContent="working";track("run",{own:$("inState").textContent==="yours",unlocked:!!PW});
+ try{const r=await fetch("/api/run",{method:"POST",headers:{"Content-Type":"application/json",...(PW?{"x-password":PW}:{})},body:JSON.stringify({input:$("inp").value,files:FILES})});const j=await r.json();
+  if(!r.ok){$("out").innerHTML=`<p class="err">${esc(j.error||"Something went wrong.")}</p>`;$("outState").textContent="error";track("run_error",{status:r.status});if(r.status===401){PW=null;try{localStorage.removeItem("pw:"+BOOT.product)}catch(e){}}}
+  else{show(j);$("outState").textContent=j.unlocked?"done, unlocked":"done";track("run_ok",{shown:j.shown,total:j.total})}}
+ catch(e){$("out").innerHTML='<p class="err">Network hiccup. Try again.</p>'}
+ b.disabled=false;b.textContent="Sort it"};
+function unlockedUI(via){$("payH").innerHTML='<span class="unl">Unlocked</span> Every run does all of them';$("payP").textContent="Your password is saved in this browser. It works on any device.";$("buy").parentNode.hidden=true;$("freeLine").textContent="Unlocked: every document you paste, up to 25 a run, with who to chase, the follow-up notes and the spreadsheet.";track("unlock",{via})}
+async function tryPw(pw,via){const r=await fetch("/api/check",{method:"POST",headers:{"x-password":pw}});if(r.ok){PW=pw;try{localStorage.setItem("pw:"+BOOT.product,pw)}catch(e){}unlockedUI(via);return true}$("pwMsg").textContent="That password didn't match.";return false}
+$("pwGo").onclick=()=>tryPw($("pwIn").value.trim(),"typed");
+let CO=null;
+$("buy").onclick=async()=>{track("checkout_open");if(CO){$("checkout").scrollIntoView({behavior:"smooth"});return}
+ const b=$("buy");b.disabled=true;try{const r=await fetch("/api/checkout",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({token:BOOT.token})});const j=await r.json();if(!j.clientSecret)throw 0;
+ const st=Stripe("pk_live_51TUvvcBzD4mN8eOD28H6oQkFwFHwF1SLtWxN1vHRmnSxntWFefgd33mEIVmjv8ekxWgkZft3OpPlzmVXMIeHPBwj003998hjTf");CO=await st.initEmbeddedCheckout({fetchClientSecret:async()=>j.clientSecret});CO.mount("#checkout")}catch(e){$("pwMsg").textContent="Checkout couldn't start. Try again in a minute."}b.disabled=false};
+$("customLink").onclick=()=>track("custom_click");
+(async()=>{const u=new URLSearchParams(location.search);const sid=u.get("paid"),pw=u.get("pw");
+ if(pw){await tryPw(pw,"link")}else if(PW){unlockedUI("stored")}
+ if(sid){const r=await fetch("/api/session-status?session_id="+encodeURIComponent(sid));const j=await r.json();
+  if(j.paid&&j.password){track("paid");$("payH").textContent="Paid. Your password:";$("payP").innerHTML=`<b style="font:600 22px var(--mono);letter-spacing:2px">${esc(j.password)}</b><br>It is also in the Stripe receipt sent to ${esc(j.email||"your email")}. Keep it: it unlocks this tool on any device.`;PW=j.password;try{localStorage.setItem("pw:"+BOOT.product,PW)}catch(e){}$("buy").parentNode.hidden=true;$("pay").scrollIntoView()}}
+ track("preview_open")})();
+</script></body></html>
