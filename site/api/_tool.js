@@ -30,9 +30,12 @@ const schema = {
   },
 };
 
-const today = () => new Date().toISOString().slice(0, 10);
+// "Today" is the buyer's day, not the server's: Vercel runs in UTC, so an expiry read at
+// 8pm in Minneapolis would otherwise count as yesterday's and print "Expired 1 day ago".
+const TZ = "America/Chicago";
+const today = (now = new Date()) => now.toLocaleDateString("en-CA", { timeZone: TZ, year: "numeric", month: "2-digit", day: "2-digit" });
 
-function prepare(input, unlocked, files) {
+function prepare(input, unlocked, files, now = new Date()) {
   const m = input.match(/^\s*CHECKLIST:([\s\S]*?)(?:\n-{3,}|$)/i);
   const checklist = m ? m[1].trim() : "";
   const body = m ? input.slice(m[0].length) : input;
@@ -41,7 +44,7 @@ function prepare(input, unlocked, files) {
   if (!items.length) return { error: "Paste a document (or add a file) for it to sort." };
   const cap = unlocked ? PAID : FREE;
   const use = items.slice(0, cap);
-  const content = [{ type: "text", text: `Today is ${today()}.\nCHECKLIST: ${checklist || "(none given: use the default)"}\nThere are ${use.length} documents.` }];
+  const content = [{ type: "text", text: `Today is ${today(now)}.\nCHECKLIST: ${checklist || "(none given: use the default)"}\nThere are ${use.length} documents.` }];
   use.forEach((it, i) => {
     if (it.kind === "text") content.push({ type: "text", text: `=== Document ${i + 1} (pasted)\n${it.t}` });
     else {
@@ -55,15 +58,17 @@ function prepare(input, unlocked, files) {
   return { content, shown: use.length, total: Math.min(items.length, PAID), names: use.map((it, i) => it.kind === "file" ? it.f.name : `Document ${i + 1}`) };
 }
 
-function post(out, unlocked, prep) {
-  const t = Date.parse(today());
+const days = (n) => `${n} day${n === 1 ? "" : "s"}`;
+function post(out, unlocked, prep, now = new Date()) {
+  const t = Date.parse(today(now));
   for (const d of out.documents) {
     d.source = prep.names[d.n - 1] || `Document ${d.n}`;
     const e = Date.parse(d.expires_on);
     if (d.expires_on && !isNaN(e)) {
-      const days = Math.round((e - t) / 864e5);
-      if (days < 0) d.problems.unshift(`Expired ${-days} days ago (${d.expires_on})`);
-      else if (days <= 30) d.problems.unshift(`Expires in ${days} days (${d.expires_on})`);
+      const n = Math.round((e - t) / 864e5);
+      if (n < 0) d.problems.unshift(`Expired ${days(-n)} ago (${d.expires_on})`);
+      else if (n === 0) d.problems.unshift(`Expires today (${d.expires_on})`);
+      else if (n <= 30) d.problems.unshift(`Expires in ${days(n)} (${d.expires_on})`);
     }
   }
   if (!unlocked) {
@@ -76,5 +81,5 @@ function post(out, unlocked, prep) {
 module.exports = {
   product, site: "https://paperwork-sorter.vercel.app", name: "Paperwork Sorter", price_usd: 5,
   checkout_line: "Sort up to 25 documents a run, every run: the spreadsheet, the missing-paperwork list and the follow-up notes.",
-  max_chars: 120000, effort: "low", system, schema, prepare, post,
+  max_chars: 120000, effort: "low", system, schema, prepare, post, today,
 };
