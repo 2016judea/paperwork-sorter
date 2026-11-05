@@ -8,7 +8,7 @@ Drop in the pile (invoices, W-9s, certificates of insurance, notices, packing sl
 
 Job postings are a business writing down, in its own words, a step of work it will pay a
 salary for. A sweep of Twin Cities postings from the last 30 days (Craigslist jobs plus
-public Greenhouse, Lever and Ashby boards, 2026-10-17; `~/Desktop/hiring-signals`) found
+public Greenhouse, Lever and Ashby boards, 2026-10-17; `~/Desktop/workspace/hiring-signals`) found
 **42 distinct employers** posting a version of this one:
 
 > Follow up aggressively on missing or expired documentation  
